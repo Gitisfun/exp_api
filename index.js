@@ -2,6 +2,8 @@ import 'dotenv/config'
 import Express from "express";
 import http from "http";
 import cors from "cors";
+import ApiError from './errors/ApiError';
+import errorHandler from './errors/ErrorHandler';
 
 const app = Express();
 const server = http.createServer(app);
@@ -14,5 +16,11 @@ app.use(Express.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
   res.send("Welcome to the API!!! (v2.0)");
 });
+
+app.use((req, res, next) => {
+    next(ApiError.notFound("Route not found"));
+});
+
+app.use(errorHandler);
 
 server.listen(port, () => console.log(`Server is running on port ${port}`));
