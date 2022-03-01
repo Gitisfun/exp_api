@@ -12,7 +12,7 @@ app.use(Express.json());
 app.use(Express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  res.send("Welcome to the API!!!");
+  res.send("Welcome to the API!!! (v2.0)");
 });
 
 server.listen(port, () => console.log(`Server is running on port ${port}`));
