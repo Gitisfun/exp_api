@@ -2,8 +2,8 @@ import 'dotenv/config'
 import Express from "express";
 import http from "http";
 import cors from "cors";
-import ApiError from './errors/ApiError';
-import errorHandler from './errors/ErrorHandler';
+import ApiError from './errors/ApiError.js';
+import errorHandler from './errors/ErrorHandler.js';
 
 const app = Express();
 const server = http.createServer(app);

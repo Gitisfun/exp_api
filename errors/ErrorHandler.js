@@ -1,5 +1,4 @@
 import ApiError from "./ApiError.js"
-// import logger from "../console/logger.js"
 
 function errorHandler(err, req, res) {
 
