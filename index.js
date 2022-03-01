@@ -14,6 +14,7 @@ app.use(Express.json());
 app.use(Express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
+  console.log("Test voor api");
   res.send("Welcome to the API!!! (v2.0)");
 });
 
