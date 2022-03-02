@@ -5,6 +5,9 @@ import cors from "cors";
 import ApiError from "./errors/ApiError.js";
 import errorHandler from "./errors/ErrorHandler.js";
 
+// Routes
+import accountsRoute from "./routes/accounts.js"
+
 const app = Express();
 const server = http.createServer(app);
 const port = process.env.PORT || 5000;
@@ -16,6 +19,8 @@ app.use(Express.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
   res.send("Welcome to the API!!! (v2.0)");
 });
+
+app.use("/api/accounts/", accountsRoute);
 
 app.use((req, res, next) => {
   next(ApiError.notFound("Route not found"));
