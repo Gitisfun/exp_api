@@ -1,4 +1,10 @@
+import Logger from "../middleware/logger.js";
+
 export default function responseHandler(err, results, res, next) {
-    if (err) { next(err) }
-    else { res.send(results) }
+  if (err) {
+    Logger.error(err);
+    next(err);
+  } else {
+    res.send(results);
+  }
 }

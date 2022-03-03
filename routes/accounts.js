@@ -11,12 +11,12 @@ router.post("/check",/* authenticator,*/ (req, res, next) => {
   checkIfUserAlreadyExists(req.body, res, next)
 });
 
-router.post("/"/*, authenticator*/, (req, res, next) => {
+router.post("/register"/*, authenticator*/, (req, res, next) => {
   const paramList = [req.body.username, req.body.firstname, req.body.lastname];
   Authenticator.hasher(req.body, QUERY_CREATE, paramList, queryHandler, res, next);
 });
 
-router.post("/malibu", (req, res, next) => {
+router.post("/login", (req, res, next) => {
   findUser(req.body, res, next);
 });
 

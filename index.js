@@ -7,6 +7,8 @@ import errorHandler from "./errors/ErrorHandler.js";
 
 // Routes
 import accountsRoute from "./routes/accounts.js"
+import categoriesRoute from "./routes/categories.js"
+import Logger from "./middleware/logger.js";
 
 const app = Express();
 const server = http.createServer(app);
@@ -21,6 +23,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/accounts/", accountsRoute);
+app.use("/api/categories/", categoriesRoute);
 
 app.use((req, res, next) => {
   next(ApiError.notFound("Route not found"));
@@ -28,4 +31,4 @@ app.use((req, res, next) => {
 
 app.use(errorHandler);
 
-server.listen(port, () => console.log(`Server is running on port ${port}`));
+server.listen(port, () => Logger.info(`Server is running on port ${port}`));
