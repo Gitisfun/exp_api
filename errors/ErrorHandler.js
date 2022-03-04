@@ -1,4 +1,4 @@
-import Logger from "../middleware/logger.js";
+import Logger from "../middleware/logger/logger.js";
 import ApiError from "./ApiError.js";
 
 function errorHandler(err, req, res, next) {

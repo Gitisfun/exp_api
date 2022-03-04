@@ -1,4 +1,4 @@
-import Logger from "../middleware/logger.js";
+import Logger from "../middleware/logger/logger.js";
 
 export default function responseHandler(err, results, res, next) {
   if (err) {

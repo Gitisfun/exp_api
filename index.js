@@ -4,11 +4,13 @@ import http from "http";
 import cors from "cors";
 import ApiError from "./errors/ApiError.js";
 import errorHandler from "./errors/ErrorHandler.js";
+import Logger from "./middleware/logger/logger.js";
 
 // Routes
 import accountsRoute from "./routes/accounts.js"
 import categoriesRoute from "./routes/categories.js"
-import Logger from "./middleware/logger.js";
+import transactionsRoute from "./routes/transactions.js"
+
 
 const app = Express();
 const server = http.createServer(app);
@@ -24,6 +26,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/accounts/", accountsRoute);
 app.use("/api/categories/", categoriesRoute);
+app.use("/api/transactions/", transactionsRoute);
 
 app.use((req, res, next) => {
   next(ApiError.notFound("Route not found"));

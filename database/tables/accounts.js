@@ -12,6 +12,8 @@ const COLUMN_PASSWORD = "password";
 const COLUMN_FIRSTNAME = "firstname";
 const COLUMN_LASTNAME = "lastname";
 
+export const TABLE_NAME_ACCOUNTS = "accounts";
+
 // QUERIES
 
 function QUERY_CREATE() {

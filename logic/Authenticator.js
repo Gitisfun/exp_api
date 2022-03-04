@@ -6,7 +6,6 @@ import responseHandler from "./responseHandler.js";
 class Authenticator {
 
   static hasher(body, query, paramList, responser, res, next) {
-
     bcrypt.hash(body.password, 10, function (err, hash) {
       if (err) {
         next(err);

@@ -1,11 +1,13 @@
 import chalk from "chalk";
+import { tableStates } from "./tablesStates.js";
+
 
 class Logger {
-  
+
   static generic(type, color, txt) {
-      if(process.env.CO_MODE === "DEV") {
-          console.log(color(`[${type}] ${txt}`));
-      }
+    if (process.env.CO_MODE === "DEV") {
+      console.log(color(`[${type}] ${txt}`));
+    }
   }
 
   static success(txt) {
@@ -14,6 +16,10 @@ class Logger {
 
   static info(txt) {
     this.generic("Info", chalk.blue, txt);
+  }
+
+  static query(table, txt) {
+    this.generic(table, tableStates(table), txt);
   }
 
   static error(txt) {
